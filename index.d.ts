@@ -301,6 +301,7 @@ interface ChannelQueries {
 }
 interface RenderChannelPreviewProps {
   channel: Sendbird.GroupChannel;
+  // FIXME: node_modules/sendbird-uikit/index.d.ts(304,3): error TS7010: 'onLeaveChannel', which lacks return-type annotation, implicitly has an 'any' return type.
   onLeaveChannel(
     channel: Sendbird.GroupChannel,
     onLeaveChannelCb?: (c: Sendbird.GroupChannel) => void,
@@ -313,10 +314,12 @@ interface EmojiContainer {
 interface RenderChatItemProps {
   message: SendBird.UserMessage | SendBird.FileMessage | SendBird.AdminMessage;
   channel: Sendbird.GroupChannel;
+  // FIXME: node_modules/sendbird-uikit/index.d.ts(316,3): error TS7010: 'onDeleteMessage', which lacks return-type annotation, implicitly has an 'any' return type.
   onDeleteMessage(
     message: SendBird.AdminMessage | SendBird.UserMessage | SendBird.FileMessage,
     onDeleteCb: () => void,
   );
+  // FIXME: node_modules/sendbird-uikit/index.d.ts(320,3): error TS7010: 'onUpdateMessage', which lacks return-type annotation, implicitly has an 'any' return type.
   onUpdateMessage(
     messageId: string | number,
     text: string,
@@ -470,4 +473,5 @@ export type RenderCustomMessage = (
   chainBottom: boolean,
 ) => RenderCustomMessageProps;
 
+// FIXME: node_modules/sendbird-uikit/index.d.ts(473,45): error TS7031: Binding element 'EveryMessage' implicitly has an 'any' type.
 type RenderCustomMessageProps = ({ message: EveryMessage }) => React.ReactElement;
